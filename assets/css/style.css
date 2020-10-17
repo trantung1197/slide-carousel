@@ -12,17 +12,17 @@ body {
 }
 
 .wraper {
-    margin: 50px auto;
-    position: relative;
+	margin: 50px auto;
+	position: relative;
 }
 
 .carousel-container {
 	width: 80%;
 	max-width: 768px;
 	margin: 0 auto;
-    overflow: hidden;
-    border-radius: 6px;
-    box-shadow: 0px 0px 10px #f2f2f2;
+	overflow: hidden;
+	border-radius: 6px;
+	box-shadow: 0px 0px 10px #f2f2f2;
 }
 
 .carousel-slide {
@@ -41,45 +41,47 @@ body {
 	height: 500px;
 }
 
+
+/* navigaion button */
 .navigation-button {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
 }
 
 .manual-btn {
-    border: 2px solid #2d3436;
-    border-radius: 50%;
-    box-shadow: 0 0 2px #f2f2f2;
+	border: 2px solid #2d3436;
+	border-radius: 50%;
+	box-shadow: 0 0 2px #f2f2f2;
 
-    width: 20px;
-    height: 20px;
-    margin: 3px;
+	width: 20px;
+	height: 20px;
+	margin: 3px;
 
-    position: relative;
-    cursor: pointer;
+	position: relative;
+	cursor: pointer;
 }
-.manual-btn::after{
-    content: '';
-    display: none;
-    background-color: #00cec9;
-    
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 15px;
-    height: 15px;
+.manual-btn::after {
+	content: "";
+	display: none;
+	background-color: #00cec9;
 
-    border: none;
-    border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 15px;
+	height: 15px;
+
+	border: none;
+	border-radius: 50%;
 }
 
-.manual-btn:hover::after{
-    display: inline-block;
-    opacity: 0.5;
+.manual-btn:hover::after {
+	display: inline-block;
+	opacity: 0.5;
 }
 
 input {
@@ -87,5 +89,43 @@ input {
 }
 
 [type="radio"]:checked + label:after {
-    display: inline-block;
+	display: inline-block;
 }
+
+/* button next - prev */
+.box-button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	margin: 0 auto;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.box-button button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	width: 40px;
+	height: 40px;
+
+	border-radius: 50%;
+
+	background-color: #f2f2f291;
+	opacity: 0.3;
+	transition: all 0.3s ease-in-out;
+}
+
+.box-button button:hover {
+	opacity: 1;
+}
+
+.box-button button i {
+	font-size: 32px;
+	color: #444;
+}
+/* end button next - prev */

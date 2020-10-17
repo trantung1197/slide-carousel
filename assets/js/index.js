@@ -9,11 +9,15 @@ const size = carouselItem[0].clientWidth;
 let carouselLenght = carouselItem.length;
 
 //custome props
-let counter = 0;
+let counter = 1;
 let timeTrans = 0.4;
 let autoSlide = true;
 let isLoop = true;
 let timeInterval = 5000;
+
+//start at first element = index: 1
+carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+
 //create navigation button radio
 createInputRadio = (id) => {
 	return (htmlString = `
@@ -32,8 +36,18 @@ let labelBtnRadio = document.querySelectorAll("input[name=radio-btn]");
 
 //set cheked input radio
 setCheckedRadio = (index) => {
-	labelBtnRadio[index].setAttribute("checked", true);
+	labelBtnRadio.forEach((ele) => {
+		ele.removeAttribute("checked");
+	});
+	if (index >= labelBtnRadio.length) {
+		labelBtnRadio[0].setAttribute("checked", true);
+	} else if (index < 0) {
+		labelBtnRadio[labelBtnRadio.length - 1].setAttribute("checked", true);
+	} else {
+		labelBtnRadio[index].setAttribute("checked", true);
+	}
 };
+
 setCheckedRadio(0);
 
 //clone element
@@ -61,7 +75,7 @@ transformSlide = (isNext) => {
 	}
 	carouselSlide.style.transition = `transform ${timeTrans}s ease-in-out`;
 	carouselSlide.style.transform = `translateX(${-size * counter}px)`;
-	setCheckedRadio(counter);
+	setCheckedRadio(counter - 1);
 };
 
 transformSlideRadio = (num) => {
@@ -102,7 +116,7 @@ carouselSlide.addEventListener("transitionend", () => {
 	}
 });
 
-//auto loop
+// auto loop
 if (autoSlide & isLoop) {
 	setInterval(() => {
 		transformSlide(true);
